@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_certificate_type,access_certificate_type,model_certificate_type,base.group_user,1,1,1,1
+access_issuing_organization,access_issuing_organization,model_issuing_organization,base.group_user,1,1,1,1
