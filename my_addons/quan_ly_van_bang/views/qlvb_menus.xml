@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="qlvb_menu_root" name="Quản lý văn bằng" groups="base.group_user" sequence="10"/>
+    <menuitem id="menu_certificate_type" name="Certificate Types" parent="qlvb_menu_root" action="action_certificate_type"/>
+    <menuitem id="menu_issuing_organization" name="Issuing Organizations" parent="qlvb_menu_root" action="action_issuing_organization"/>
+    <menuitem id="menu_certificate_application" name="Certificate Applications" parent="qlvb_menu_root" action="action_certificate_application"/>
+    <menuitem id="menu_certificate_status_logs" name="Certificate Status Logs" parent="qlvb_menu_root" action="action_certificate_status_logs"/>
+</odoo>
