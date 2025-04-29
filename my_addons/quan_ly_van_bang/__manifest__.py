@@ -11,8 +11,10 @@
     'author': 'D24 Team',
     'depends': ['base'],
     'data': [
-        # Add your XML files here
-        # 'views/your_view.xml',
+
+        'views/student_view.xml',
+        'views/certificate_view.xml',
+        'menu_view.xml',
     ],
     'installable': True,
     'application': True,
