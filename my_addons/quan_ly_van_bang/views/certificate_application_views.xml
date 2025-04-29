@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+
+        <record id="view_certificate_application_tree" model="ir.ui.view">
+            <field name="name">certificate.application.tree</field>
+            <field name="model">certificate.application</field>
+            <field name="arch" type="xml">
+                <tree string="Danh Sách Đơn Đăng Ký Cấp Chứng Chỉ">
+                    <field name="name"/>
+                    <field name="student_id"/>
+                    <field name="certificate_type_id"/>
+                    <field name="status"/>
+                    <field name="apply_date"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_certificate_application_form" model="ir.ui.view">
+            <field name="name">certificate.application.form</field>
+            <field name="model">certificate.application</field>
+            <field name="arch" type="xml">
+                <form string="Đơn Đăng Ký Cấp Chứng Chỉ">
+                    <sheet>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="student_id"/>
+                            <field name="certificate_type_id"/>
+                            <field name="apply_date"/>
+                            <field name="status"/>
+                            <field name="notes"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+      
+        <record id="action_certificate_application" model="ir.actions.act_window">
+            <field name="name">Đơn Đăng Ký Cấp Chứng Chỉ</field>
+            <field name="res_model">certificate.application</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
