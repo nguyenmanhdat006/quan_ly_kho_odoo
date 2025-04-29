@@ -16,6 +16,7 @@
         "views/issuing_organization_views.xml",
         "views/certificate_application_views.xml",
         "views/certificate_status_logs_views.xml",
+        "views/menu_access_control.xml",
         "views/qlvb_menus.xml",
     ],
     "installable": True,
