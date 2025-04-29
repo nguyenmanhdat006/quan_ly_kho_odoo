@@ -6,4 +6,6 @@
     <menuitem id="menu_issuing_organization" name="Issuing Organizations" parent="qlvb_menu_root" action="action_issuing_organization"/>
     <menuitem id="menu_certificate_application" name="Certificate Applications" parent="qlvb_menu_root" action="action_certificate_application"/>
     <menuitem id="menu_certificate_status_logs" name="Certificate Status Logs" parent="qlvb_menu_root" action="action_certificate_status_logs"/>
+    <menuitem id="menu_student" name="Students" parent="qlvb_menu_root" action="action_student"/>
+    <menuitem id="menu_certificate" name="Certificates" parent="qlvb_menu_root" action="action_certificate"/>
 </odoo>

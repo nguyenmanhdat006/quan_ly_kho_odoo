@@ -1,0 +1,52 @@
+<odoo>
+    <record id="view_certificate_form" model="ir.ui.view">
+        <field name="name">Certificate Form</field>
+        <field name="model">quanly.certificate</field>
+        <field name="arch" type="xml">
+            <form string="Certificate">
+                <sheet>
+                    <group>
+                        <field name="student_id" />
+                        <field name="certificate_type_id" />
+                        <field name="issuing_organization_id" />
+                        <field name="certificate_code" />
+                        <field name="issue_date" />
+                        <field name="expiration_date" />
+                        <field name="status" />
+                        <field name="file_url" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_certificate_tree" model="ir.ui.view">
+        <field name="name">Certificate Tree</field>
+        <field name="model">quanly.certificate</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_id" />
+                <field name="certificate_type_id" />
+                <field name="certificate_code" />
+                <field name="status" />
+            </tree>
+        </field>
+    </record>
+    <record id="action_certificate" model="ir.actions.act_window">
+        <field name="name">Certificates</field>
+        <field name="res_model">quanly.certificate</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="view_certificate_search" model="ir.ui.view">
+        <field name="name">certificate.search</field>
+        <field name="model">quanly.certificate</field>
+        <field name="arch" type="xml">
+            <search string="Search Certificates">
+                <field name="student_id" />
+                <field name="certificate_type_id" />
+                <field name="issuing_organization_id" />
+                <field name="status" />
+            </search>
+        </field>
+    </record>
+</odoo>
