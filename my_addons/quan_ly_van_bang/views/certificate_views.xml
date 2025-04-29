@@ -6,9 +6,9 @@
             <form string="Certificate">
                 <sheet>
                     <group>
-                        <field name="student_id" />
+                        <field name="student_id" widget="Many2one"/>
                         <field name="certificate_type_id" />
-                        <field name="issuing_organization_id" />
+                        <field name="issuing_organization_id"/>
                         <field name="certificate_code" />
                         <field name="issue_date" />
                         <field name="expiration_date" />

@@ -6,7 +6,7 @@
             <form string="Student">
                 <sheet>
                     <group>
-                        <field name="full_name" />
+                        <field name="name" />
                         <field name="date_of_birth" />
                         <field name="national_id" />
                         <field name="email" />
@@ -36,7 +36,7 @@
         <field name="model">quanly.student</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="full_name" />
+                <field name="name" />
                 <field name="email" />
                 <field name="phone_number" />
             </tree>
@@ -53,7 +53,7 @@
         <field name="model">quanly.student</field>
         <field name="arch" type="xml">
             <search string="Search Students">
-                <field name="full_name" />
+                <field name="name" />
                 <field name="email" />
                 <field name="phone_number" />
             </search>
