@@ -17,8 +17,8 @@
                         <page string="Certificates">
                             <field name="certificate_ids">
                                 <tree editable="bottom">
-                                    <field name="certificate_type_id" />
                                     <field name="certificate_code" />
+                                    <field name="certificate_type_id" />
                                     <field name="issue_date" />
                                     <field name="expiration_date" />
                                     <field name="status" />
