@@ -50,6 +50,6 @@ package.json
 /share/
 /src/
 
-venv
+/venv
 odoo.conf
 data_dir

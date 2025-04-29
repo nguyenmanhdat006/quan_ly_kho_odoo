@@ -14,7 +14,12 @@
         "security/ir.model.access.csv",
         "views/certificate_type_views.xml",
         "views/issuing_organization_views.xml",
-        'views/menu_access_control.xml', 
+        "views/certificate_application_views.xml",
+        "views/certificate_status_logs_views.xml",
+        "views/student_views.xml",
+        "views/certificate_views.xml",
+        "views/menu_access_control.xml",
+
         "views/qlvb_menus.xml",
     ],
     "installable": True,

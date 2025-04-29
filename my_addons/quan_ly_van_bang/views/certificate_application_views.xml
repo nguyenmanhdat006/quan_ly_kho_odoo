@@ -5,28 +5,36 @@
             <field name="name">certificate.application.tree</field>
             <field name="model">certificate.application</field>
             <field name="arch" type="xml">
-                <tree string="Danh Sách Đơn Đăng Ký Cấp Chứng Chỉ">
+
+                <tree string="Danh Sách Đơn Đăng Ký Cấp Chứng Chỉ" decoration-danger="status == 'rejected'" decoration-success="status == 'approved'">
                     <field name="name"/>
                     <field name="student_id"/>
                     <field name="certificate_type_id"/>
+                    <button name="action_accept" title="Accept" type="object" icon="fa-check" invisible="status in ['approved', 'rejected']"/>
+                    <button name="action_refuse" title="Refused" type="object" icon="fa-times" invisible="status in ['approved', 'rejected']" />
                     <field name="status"/>
                     <field name="apply_date"/>
                 </tree>
             </field>
         </record>
-        
+
         <record id="view_certificate_application_form" model="ir.ui.view">
             <field name="name">certificate.application.form</field>
             <field name="model">certificate.application</field>
             <field name="arch" type="xml">
                 <form string="Đơn Đăng Ký Cấp Chứng Chỉ">
                     <sheet>
+                        <header>
+                            <field name="status" widget="statusbar"/>
+                        </header>
+
                         <group>
                             <field name="name" readonly="1"/>
                             <field name="student_id"/>
                             <field name="certificate_type_id"/>
                             <field name="apply_date"/>
-                            <field name="status"/>
+
+
                             <field name="notes"/>
                         </group>
                     </sheet>
@@ -34,8 +42,6 @@
             </field>
         </record>
 
-
-      
         <record id="action_certificate_application" model="ir.actions.act_window">
             <field name="name">Đơn Đăng Ký Cấp Chứng Chỉ</field>
             <field name="res_model">certificate.application</field>
