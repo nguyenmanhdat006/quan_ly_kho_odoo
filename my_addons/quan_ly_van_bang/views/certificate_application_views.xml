@@ -5,7 +5,7 @@
             <field name="name">certificate.application.tree</field>
             <field name="model">certificate.application</field>
             <field name="arch" type="xml">
-                <tree string="Danh Sách Đơn Đăng Ký Cấp Chứng Chỉ">
+                <tree string="Danh Sách Đơn Đăng Ký Cấp Chứng Chỉ" decoration-danger="status == 'rejected'" decoration-success="status == 'approved'">
                     <field name="name"/>
                     <field name="student_id"/>
                     <field name="certificate_type_id"/>
