@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_issuing_organization_tree" model="ir.ui.view">
+        <field name="name">issuing.organization.tree</field>
+        <field name="model">issuing.organization</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="contact_info"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_issuing_organization_form" model="ir.ui.view">
+        <field name="name">issuing.organization.form</field>
+        <field name="model">issuing.organization</field>
+        <field name="arch" type="xml">
+            <form string="Issuing Organization">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="contact_info"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_issuing_organization" model="ir.actions.act_window">
+        <field name="name">Issuing Organizations</field>
+        <field name="res_model">issuing.organization</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

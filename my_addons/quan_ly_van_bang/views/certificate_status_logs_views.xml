@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_certificate_status_logs_tree" model="ir.ui.view">
+        <field name="name">certificate.status.logs.tree</field>  
+        <field name="model">certificate.status.logs</field>  
+        <field name="arch" type="xml">
+            <tree string="Certificate Status Logs">
+                <field name="certificate_application_id"/>
+                <field name="old_status"/>
+                <field name="new_status"/>
+                <field name="changed_by"/>
+                <field name="change_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_certificate_status_logs_form" model="ir.ui.view">
+        <field name="name">certificate.status.logs.form</field>  
+        <field name="model">certificate.status.logs</field> 
+        <field name="arch" type="xml">
+            <form string="Certificate Status Logs">
+                <sheet>
+                    <group>
+                        <field name="certificate_application_id"/>
+                        <field name="old_status"/>
+                        <field name="new_status"/>
+                        <field name="changed_by"/>
+                        <field name="change_date"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_certificate_status_logs" model="ir.actions.act_window">
+        <field name="name">Certificate Status Logs</field>
+        <field name="res_model">certificate.status.logs</field>  
+        <field name="view_mode">tree,form</field>  
+    </record>
+
+
+</odoo>

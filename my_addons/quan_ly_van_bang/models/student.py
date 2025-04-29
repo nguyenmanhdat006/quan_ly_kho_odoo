@@ -1,12 +1,18 @@
 from odoo import models, fields
 
-class Certificate(models.Model):
-    _name = 'quanly.certificate'
-    _description = 'Certificate'
+class Student(models.Model):
+    _name = 'quanly.student'
+    _description = 'Student'
 
-    name = fields.Char(string='Certificate Name', required=True)
-    issue_date = fields.Date(string='Issue Date')
-    expiration_date = fields.Date(string='Expiration Date')
-    issuing_authority = fields.Char(string='Issuing Authority')
+    full_name = fields.Char(string="Full Name", required=True)
+    date_of_birth = fields.Date(string="Date of Birth")
+    national_id = fields.Char(string="National ID")
+    email = fields.Char(string="Email")
+    phone_number = fields.Char(string="Phone Number")
+    address = fields.Text(string="Address")
 
-    student_id = fields.Many2one('quanly.student', string='Student', ondelete='cascade')
+    certificate_ids = fields.One2many(
+        'quanly.certificate', 'student_id', string="Certificates"
+    )
+
+
