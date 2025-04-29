@@ -11,10 +11,9 @@
     'author': 'D24 Team',
     'depends': ['base'],
     'data': [
-
-        'views/student_view.xml',
-        'views/certificate_view.xml',
-        'menu_view.xml',
+        # 'security/ir.model.access.csv', 
+        'views/student_view.xml',  
+        'views/certificate_view.xml',  
     ],
     'installable': True,
     'application': True,
