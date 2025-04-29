@@ -52,4 +52,4 @@ package.json
 
 odoo.conf
 data_dir
-myVenv
+venv
