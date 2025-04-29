@@ -25,13 +25,33 @@ class CertificateApplication(models.Model):
     notes = fields.Text(string="Ghi Chú")
 
     def action_accept(self):
-            for record in self:
-                record.status = "approved"
-                record.env["quanly.certificate"].create({
-                    "student_id": record.student_id.id,
-                    "certificate_type_id": record.certificate_type_id.id,
-                    "issue_date": date.today(),
-                    "status": "valid",
-                })
+        for record in self:
+            record.status = "approved"
+            record.env["quanly.certificate"].create({
+                "student_id": record.student_id.id,
+                "certificate_type_id": record.certificate_type_id.id,
+                "issue_date": date.today(),
+                "status": "valid",
+            })
+
+            record.env["certificate.status.logs"].create({
+                "certificate_application_id": record.id,
+                "old_status": record.status,
+                "new_status": record.status,
+                "changed_by": self.env.user.id,
+                "change_date": fields.Datetime.now(),
+                "notes": "Đơn đã được duyệt và chứng chỉ đã tạo.",
+            })
     def action_refuse(self):
-        self.status = "rejected"
+        for record in self:
+            record.status = "rejected"
+
+            record.env["certificate.status.logs"].create({
+                "certificate_application_id": record.id,
+                "old_status": record.status,
+                "new_status": record.status,
+                "changed_by": self.env.user.id,
+                "change_date": fields.Datetime.now(),
+                "notes": "Đơn bị từ chối.",
+            })
+
