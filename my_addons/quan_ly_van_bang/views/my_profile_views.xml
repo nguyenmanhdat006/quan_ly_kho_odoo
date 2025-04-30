@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_res_users_form_inherit" model="ir.ui.view">
+        <field name="name">res.users.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group>
+                    <field name="name" readonly="1"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                </group>
+                <group string="Student Information">
+                    <field name="student_ids" widget="one2many_list" context="{'default_user_id': id}">
+                        <tree>
+                            <field name="date_of_birth"/>
+                            <field name="address"/>
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_open_current_user_form" model="ir.actions.server">
+        <field name="name">Open My User Form</field>
+        <field name="model_id" ref="base.model_res_users"/>
+        <field name="binding_model_id" ref="base.model_res_users"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = {
+                "type": "ir.actions.act_window",
+                "res_model": "res.users",
+                "res_id": user.id,
+                "view_mode": "form",
+                "target": "current",
+            }
+        </field>
+    </record>
+
+</odoo>
