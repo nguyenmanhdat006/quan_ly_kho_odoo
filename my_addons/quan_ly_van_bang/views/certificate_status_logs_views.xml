@@ -1,33 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <record id="view_certificate_status_logs_tree" model="ir.ui.view">
-        <field name="name">certificate.status.logs.tree</field>  
-        <field name="model">certificate.status.logs</field>  
+    <record id="certificate_status_logs_tree_view" model="ir.ui.view">
+        <field name="name">certificate.status.logs.tree</field>
+        <field name="model">certificate.status.logs</field>
         <field name="arch" type="xml">
-            <tree string="Certificate Status Logs">
+            <tree string="Nhật Ký Thay Đổi Trạng Thái" create="false" edit="false" delete="false">
                 <field name="certificate_application_id"/>
                 <field name="old_status"/>
                 <field name="new_status"/>
                 <field name="changed_by"/>
                 <field name="change_date"/>
+                <field name="notes"/>
             </tree>
         </field>
     </record>
 
-    <record id="view_certificate_status_logs_form" model="ir.ui.view">
-        <field name="name">certificate.status.logs.form</field>  
-        <field name="model">certificate.status.logs</field> 
+    <record id="certificate_status_logs_form_view" model="ir.ui.view">
+        <field name="name">certificate.status.logs.form</field>
+        <field name="model">certificate.status.logs</field>
         <field name="arch" type="xml">
-            <form string="Certificate Status Logs">
+            <form string="Chi Tiết Nhật Ký Trạng Thái" create="false" edit="false">
                 <sheet>
                     <group>
-                        <field name="certificate_application_id"/>
-                        <field name="old_status"/>
-                        <field name="new_status"/>
-                        <field name="changed_by"/>
-                        <field name="change_date"/>
-                        <field name="notes"/>
+                        <field name="certificate_application_id" readonly="1"/>
+                        <field name="old_status" readonly="1"/>
+                        <field name="new_status" readonly="1"/>
+                        <field name="changed_by" readonly="1"/>
+                        <field name="change_date" readonly="1"/>
+                        <field name="notes" readonly="1"/>
                     </group>
                 </sheet>
             </form>
@@ -35,10 +34,9 @@
     </record>
 
     <record id="action_certificate_status_logs" model="ir.actions.act_window">
-        <field name="name">Certificate Status Logs</field>
-        <field name="res_model">certificate.status.logs</field>  
-        <field name="view_mode">tree,form</field>  
+        <field name="name">Nhật Ký Thay Đổi Trạng Thái</field>
+        <field name="res_model">certificate.status.logs</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('certificate_status_logs_tree_view')}), (0, 0, {'view_mode': 'form', 'view_id': ref('certificate_status_logs_form_view')})]"/>
     </record>
-
-
 </odoo>
