@@ -31,5 +31,4 @@ class CertificateStatusLogs(models.Model):
         string='Change Date', 
         default=fields.Datetime.now
     )
-    
     notes = fields.Text(string='Notes')

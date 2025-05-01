@@ -5,10 +5,10 @@
         <field name="name">certificate.status.logs.tree</field>  
         <field name="model">certificate.status.logs</field>  
         <field name="arch" type="xml">
-            <tree string="Certificate Status Logs">
+            <tree string="Certificate Status Logs" decoration-success="new_status == 'approved'" decoration-danger="new_status == 'rejected'">
                 <field name="certificate_application_id"/>
-                <field name="old_status"/>
                 <field name="new_status"/>
+                <field name="old_status"/>
                 <field name="changed_by"/>
                 <field name="change_date"/>
             </tree>
