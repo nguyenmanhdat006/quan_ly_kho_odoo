@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 {
-
     "name": "Quản lý văn bằng",
     "version": "1.0",
     "category": "Tools",
@@ -12,6 +11,7 @@
     "author": "D24 Team",
     "depends": ["base"],
     "data": [
+        "security/qlvb_group_access.xml",
         "security/ir.model.access.csv",
         "views/certificate_type_views.xml",
         "views/issuing_organization_views.xml",
