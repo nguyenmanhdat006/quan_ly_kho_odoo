@@ -13,6 +13,9 @@ class Student(models.Model):
     email = fields.Char(string="Email")
     phone_number = fields.Char(string="Phone Number")
     address = fields.Text(string="Address")
+    user_id = fields.Many2one(
+        "res.users", string="User", ondelete="cascade"
+    ) 
 
     certificate_ids = fields.One2many(
         "quanly.certificate", "student_id", string="Certificates"

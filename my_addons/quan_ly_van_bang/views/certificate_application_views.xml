@@ -11,7 +11,7 @@
                     <field name="student_id"/>
                     <field name="certificate_type_id"/>
                     <field name="issuing_organization_id"/>
-                    <button name="action_accept" title="Accept" type="object" icon="fa-check"  invisible="status in ['approved', 'rejected']"/>
+                    <button name="action_accept" title="Accept" type="object" icon="fa-check" invisible="status in ['approved', 'rejected']"/>
                     <button name="action_refuse" title="Refused" type="object" icon="fa-times" invisible="status in ['approved', 'rejected']" />
                     <field name="status"/>
                     <field name="apply_date"/>

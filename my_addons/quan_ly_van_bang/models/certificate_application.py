@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from datetime import date
 
+
 class CertificateApplication(models.Model):
     _name = "certificate.application"
     _description = "Đơn Đăng Ký Cấp Chứng Chỉ"
@@ -32,6 +33,9 @@ class CertificateApplication(models.Model):
         readonly=True,
     )
     notes = fields.Text(string="Ghi Chú")
+    issuing_organization_id = fields.Many2one(
+        "issuing.organization", string="Tổ Chức Cấp Chứng Chỉ"
+    )
 
     @api.model
     def create(self, vals):
