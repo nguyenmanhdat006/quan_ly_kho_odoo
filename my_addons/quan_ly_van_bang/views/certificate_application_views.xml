@@ -11,8 +11,14 @@
                     <field name="student_id"/>
                     <field name="certificate_type_id"/>
                     <field name="issuing_organization_id"/>
-                    <button name="action_accept" title="Accept" type="object" icon="fa-check"  invisible="status in ['approved', 'rejected']"/>
-                    <button name="action_refuse" title="Refused" type="object" icon="fa-times" invisible="status in ['approved', 'rejected']" />
+                    <button name="action_accept" title="Accept" type="object" icon="fa-check"
+                            invisible="status in ['approved', 'rejected']"
+                            groups="quan_ly_van_bang.group_qlvb_teacher,quan_ly_van_bang.group_qlvb_admin"/>
+
+                    <button name="action_refuse" title="Refused" type="object" icon="fa-times"
+                            invisible="status in ['approved', 'rejected']"
+                            groups="quan_ly_van_bang.group_qlvb_teacher,quan_ly_van_bang.group_qlvb_admin"/>
+
                     <field name="status"/>
                     <field name="apply_date"/>
                 </tree>
@@ -31,11 +37,11 @@
 
                         <group>
                             <field name="name" readonly="1"/>
-                            <field name="student_id"/>
-                            <field name="certificate_type_id"/>
-                            <field name="issuing_organization_id"/>
-                            <field name="apply_date"/>
-                            <field name="notes"/>
+                            <field name="student_id" readonly="status in ['approved', 'rejected']"/>
+                            <field name="certificate_type_id" readonly="status in ['approved', 'rejected']" />
+                            <field name="issuing_organization_id" readonly="status in ['approved', 'rejected']"/>
+                            <field name="apply_date" readonly="status in ['approved', 'rejected']"/>
+                            <field name="notes" readonly="status in ['approved', 'rejected']"/>
                         </group>
                     </sheet>
                 </form>

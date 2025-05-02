@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from datetime import date
 
+
 class CertificateApplication(models.Model):
     _name = "certificate.application"
     _description = "Đơn Đăng Ký Cấp Chứng Chỉ"
@@ -12,14 +13,12 @@ class CertificateApplication(models.Model):
         copy=False,
         default=lambda self: self.env['ir.sequence'].next_by_code('certificate.application') or '/'
     )
+
     student_id = fields.Many2one("quanly.student", string="Học Viên", required=True)
-    certificate_type_id = fields.Many2one(
-        "certificate.type", string="Loại Chứng Chỉ", required=True
-    )
-    issuing_organization_id = fields.Many2one(
-        "issuing.organization", string="Tổ Chức Cấp Chứng Chỉ", required=False
-    )
+    certificate_type_id = fields.Many2one("certificate.type", string="Loại Chứng Chỉ", required=True)
+    issuing_organization_id = fields.Many2one("issuing.organization", string="Tổ Chức Cấp Chứng Chỉ")
     apply_date = fields.Datetime(string="Ngày Đăng Ký", default=fields.Datetime.now)
+    
     status = fields.Selection(
         [
             ("pending", "Đang Chờ Duyệt"),
@@ -30,6 +29,7 @@ class CertificateApplication(models.Model):
         default="pending",
         required=True,
         readonly=True,
+        tracking=True,
     )
     notes = fields.Text(string="Ghi Chú")
 
@@ -43,8 +43,9 @@ class CertificateApplication(models.Model):
         for record in self:
             if record.status != "pending":
                 continue
-            old_status = record.status
             record.status = "approved"
+
+            # Tạo bản ghi chứng chỉ
             self.env["quanly.certificate"].create({
                 "student_id": record.student_id.id,
                 "certificate_type_id": record.certificate_type_id.id,
@@ -52,9 +53,11 @@ class CertificateApplication(models.Model):
                 "issue_date": date.today(),
                 "status": "valid",
             })
+
+            # Ghi log trạng thái
             self.env["certificate.status.logs"].create({
                 "certificate_application_id": record.id,
-                "old_status": old_status,
+                "old_status": "pending",
                 "new_status": "approved",
                 "changed_by": self.env.user.id,
                 "change_date": fields.Datetime.now(),
@@ -65,11 +68,11 @@ class CertificateApplication(models.Model):
         for record in self:
             if record.status != "pending":
                 continue
-            old_status = record.status
             record.status = "rejected"
+
             self.env["certificate.status.logs"].create({
                 "certificate_application_id": record.id,
-                "old_status": old_status,
+                "old_status": "pending",
                 "new_status": "rejected",
                 "changed_by": self.env.user.id,
                 "change_date": fields.Datetime.now(),

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="module_category_qlvb" model="ir.module.category">
+        <field name="name">Quản Lý Văn Bằng</field>
+        <field name="description">Category dành cho các nhóm quản lý văn bằng</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="group_qlvb_student" model="res.groups">
+        <field name="name">Student</field>
+        <field name="category_id" ref="quan_ly_van_bang.module_category_qlvb"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_qlvb_teacher" model="res.groups">
+        <field name="name">Teacher</field>
+        <field name="category_id" ref="module_category_qlvb"/>
+        <field name="implied_ids" eval="[(4, ref('quan_ly_van_bang.group_qlvb_student'))]"/>
+    </record>
+
+    <record id="group_qlvb_admin" model="res.groups">
+        <field name="name">Admin</field>
+        <field name="category_id" ref="module_category_qlvb"/>
+        <field name="implied_ids" eval="[(4, ref('quan_ly_van_bang.group_qlvb_teacher'))]"/>
+        <field name="implied_ids" eval="[(4, ref('quan_ly_van_bang.group_qlvb_student'))]"/>
+    </record>
+</odoo>
