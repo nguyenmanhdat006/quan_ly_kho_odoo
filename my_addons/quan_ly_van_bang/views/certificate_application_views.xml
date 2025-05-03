@@ -35,8 +35,6 @@
                             <field name="certificate_type_id"/>
                             <field name="issuing_organization_id"/>
                             <field name="apply_date"/>
-
-
                             <field name="notes"/>
                         </group>
                     </sheet>
