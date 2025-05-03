@@ -7,12 +7,13 @@ class CertificateApplication(models.Model):
     _description = "Đơn Đăng Ký Cấp Chứng Chỉ"
 
     name = fields.Char(
-        string="Mã Đơn",
-        required=True,
-        readonly=True,
-        copy=False,
-        default=lambda self: self.env['ir.sequence'].next_by_code('certificate.application') or '/'
-    )
+    string="Mã Đơn",
+    required=True,
+    readonly=True,
+    copy=False,
+    default='/'
+)
+
 
     student_id = fields.Many2one("quanly.student", string="Học Viên", required=True)
     certificate_type_id = fields.Many2one("certificate.type", string="Loại Chứng Chỉ", required=True)
@@ -37,12 +38,12 @@ class CertificateApplication(models.Model):
     issuing_organization_id = fields.Many2one(
         "issuing.organization", string="Tổ Chức Cấp Chứng Chỉ"
     )
-            
+
     @api.model
     def create(self, vals):
-        if vals.get('name', '/') == '/':
-            vals['name'] = self.env['ir.sequence'].next_by_code('certificate.application') or '/'
+        vals['name'] = self.env['ir.sequence'].next_by_code('certificate.application') or '/'
         return super(CertificateApplication, self).create(vals)
+
 
     def action_accept(self):
         for record in self:

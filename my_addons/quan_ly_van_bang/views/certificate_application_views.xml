@@ -29,7 +29,7 @@
             <field name="name">certificate.application.form</field>
             <field name="model">certificate.application</field>
             <field name="arch" type="xml">
-                <form string="Đơn Đăng Ký Cấp Chứng Chỉ" >
+                <form string="Đơn Đăng Ký Cấp Chứng Chỉ">
                     <sheet>
                         <header>
                             <field name="status" widget="statusbar"/>
