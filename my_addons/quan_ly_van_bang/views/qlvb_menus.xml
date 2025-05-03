@@ -6,8 +6,8 @@
     <menuitem id="menu_student" name="Students" parent="qlvb_menu_root" action="action_student"/>
     <menuitem id="menu_certificate" name="Certificates" parent="qlvb_menu_root" action="action_certificate"/>
 
-    <menuitem id="menu_certificate_type" name="Certificate Types" parent="qlvb_menu_root" action="action_certificate_type"/>
-    <menuitem id="menu_issuing_organization" name="Issuing Organizations" parent="qlvb_menu_root" action="action_issuing_organization"/>
+    <menuitem id="menu_certificate_type" name="Certificate Types" parent="qlvb_menu_root" action="action_certificate_type" groups="quan_ly_van_bang.group_qlvb_teacher"/>
+    <menuitem id="menu_issuing_organization" name="Issuing Organizations" parent="qlvb_menu_root" action="action_issuing_organization" groups="quan_ly_van_bang.group_qlvb_teacher"/>
 
     <menuitem id="menu_certificate_management" name="Certificate Management" parent="qlvb_menu_root"/>
     <menuitem id="menu_certificate_application_list" name="Certificate Applications List" parent="menu_certificate_management" action="action_certificate_application"/>

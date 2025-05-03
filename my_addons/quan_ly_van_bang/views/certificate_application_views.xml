@@ -36,12 +36,23 @@
                         </header>
 
                         <group>
+<<<<<<< HEAD
                             <field name="name" readonly="1"/>
                             <field name="student_id" />
                             <field name="certificate_type_id"  />
                             <field name="issuing_organization_id" />
                             <field name="apply_date" />
                             <field name="notes"/>
+=======
+                            <field name="readonly_status" invisible="1"/>
+                            <field name="student_id" readonly="readonly_status"/>
+                            <field name="certificate_type_id" readonly="readonly_status"/>
+                            <field name="issuing_organization_id" readonly="readonly_status"/>
+                            <field name="file_url" readonly="readonly_status"/>
+                            <field name="uploaded_image" widget="image" readonly="readonly_status"/>
+                            <field name="apply_date" readonly="readonly_status"/>
+                            <field name="notes" readonly="readonly_status"/>
+>>>>>>> base
                         </group>
                     </sheet>
                 </form>
