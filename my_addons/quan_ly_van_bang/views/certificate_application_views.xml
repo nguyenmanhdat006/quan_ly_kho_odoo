@@ -29,7 +29,7 @@
             <field name="name">certificate.application.form</field>
             <field name="model">certificate.application</field>
             <field name="arch" type="xml">
-                <form string="Đơn Đăng Ký Cấp Chứng Chỉ">
+                <form string="Đơn Đăng Ký Cấp Chứng Chỉ" >
                     <sheet>
                         <header>
                             <field name="status" widget="statusbar"/>
@@ -37,11 +37,11 @@
 
                         <group>
                             <field name="name" readonly="1"/>
-                            <field name="student_id" readonly="status in ['approved', 'rejected']"/>
-                            <field name="certificate_type_id" readonly="status in ['approved', 'rejected']" />
-                            <field name="issuing_organization_id" readonly="status in ['approved', 'rejected']"/>
-                            <field name="apply_date" readonly="status in ['approved', 'rejected']"/>
-                            <field name="notes" readonly="status in ['approved', 'rejected']"/>
+                            <field name="student_id" />
+                            <field name="certificate_type_id"  />
+                            <field name="issuing_organization_id" />
+                            <field name="apply_date" />
+                            <field name="notes"/>
                         </group>
                     </sheet>
                 </form>

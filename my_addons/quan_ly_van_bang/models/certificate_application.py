@@ -35,7 +35,7 @@ class CertificateApplication(models.Model):
     issuing_organization_id = fields.Many2one(
         "issuing.organization", string="Tổ Chức Cấp Chứng Chỉ"
     )
-
+            
     @api.model
     def create(self, vals):
         if vals.get('name', '/') == '/':
