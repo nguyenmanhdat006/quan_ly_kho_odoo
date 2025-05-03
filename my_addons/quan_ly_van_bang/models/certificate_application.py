@@ -7,16 +7,19 @@ class CertificateApplication(models.Model):
     _description = "Đơn Đăng Ký Cấp Chứng Chỉ"
 
     name = fields.Char(
-        string="Mã Đơn",
-        required=True,
-        readonly=True,
-        copy=False,
-        default=lambda self: self.env['ir.sequence'].next_by_code('certificate.application') or '/'
-    )
+    string="Mã Đơn",
+    required=True,
+    readonly=True,
+    copy=False,
+    default='/'
+)
+
 
     student_id = fields.Many2one("quanly.student", string="Học Viên", required=True)
     certificate_type_id = fields.Many2one("certificate.type", string="Loại Chứng Chỉ", required=True)
-    issuing_organization_id = fields.Many2one("issuing.organization", string="Tổ Chức Cấp Chứng Chỉ")
+    issuing_organization_id = fields.Many2one("issuing.organization", string="Tổ Chức Cấp Chứng Chỉ" , required=True)
+    file_url = fields.Char(string="File URL")
+    uploaded_image = fields.Binary(string="Uploaded Image")
     apply_date = fields.Datetime(string="Ngày Đăng Ký", default=fields.Datetime.now)
     
     status = fields.Selection(
@@ -38,9 +41,9 @@ class CertificateApplication(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('name', '/') == '/':
-            vals['name'] = self.env['ir.sequence'].next_by_code('certificate.application') or '/'
+        vals['name'] = self.env['ir.sequence'].next_by_code('certificate.application') or '/'
         return super(CertificateApplication, self).create(vals)
+
 
     def action_accept(self):
         for record in self:
@@ -52,7 +55,9 @@ class CertificateApplication(models.Model):
             self.env["quanly.certificate"].create({
                 "student_id": record.student_id.id,
                 "certificate_type_id": record.certificate_type_id.id,
-                "issuing_organization_id": record.issuing_organization_id.id if record.issuing_organization_id else False,
+                "issuing_organization_id": record.issuing_organization_id.id,
+                "file_url": record.file_url,
+                "uploaded_image": record.uploaded_image,
                 "issue_date": date.today(),
                 "status": "valid",
             })
@@ -81,3 +86,14 @@ class CertificateApplication(models.Model):
                 "change_date": fields.Datetime.now(),
                 "notes": "Đơn bị từ chối.",
             })
+    @api.model
+    def _is_admin(self):
+        return self.env.user.has_group('quan_ly_van_bang.group_qlvb_admin')  
+
+    def _compute_readonly(self):
+        for record in self:
+            record.readonly_status = (
+                record.status in ['approved', 'rejected'] and not self._is_admin()
+            )
+    readonly_status = fields.Boolean(compute="_compute_readonly", store=False)
+    
