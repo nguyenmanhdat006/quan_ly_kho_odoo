@@ -24,4 +24,12 @@
         <field name="implied_ids" eval="[(4, ref('quan_ly_van_bang.group_qlvb_teacher'))]"/>
         <field name="implied_ids" eval="[(4, ref('quan_ly_van_bang.group_qlvb_student'))]"/>
     </record>
+
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[
+            (4, ref('quan_ly_van_bang.group_qlvb_admin')),
+            (4, ref('quan_ly_van_bang.group_qlvb_teacher')),
+        ]"/>
+    </record>
+
 </odoo>
