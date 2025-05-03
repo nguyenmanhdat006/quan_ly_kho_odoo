@@ -50,3 +50,7 @@ class Certificate(models.Model):
             if record.expiration_date and record.expiration_date < today:
                 record.status = 'expired'
 
+    def action_revoke_certificate(self):
+            """Set the status of the certificate to 'revoked'."""
+            for record in self:
+                record.status = 'revoked'
