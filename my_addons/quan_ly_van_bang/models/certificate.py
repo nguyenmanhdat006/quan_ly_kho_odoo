@@ -1,6 +1,8 @@
 from odoo import models, fields, api
 from datetime import date
 from odoo.exceptions import ValidationError
+import random
+import string
 
 
 class Certificate(models.Model):
@@ -14,7 +16,7 @@ class Certificate(models.Model):
     issuing_organization_id = fields.Many2one(
         "issuing.organization", string="Issuing Organization", required=True
     )
-    certificate_code = fields.Char(string="Certificate Code")
+    certificate_code = fields.Char(string="Certificate Code", readonly=True)
     issue_date = fields.Date(string="Issue Date")
     expiration_date = fields.Date(string="Expiration Date")
     status = fields.Selection(
@@ -27,7 +29,15 @@ class Certificate(models.Model):
         default="valid",
     )
     file_url = fields.Char(string="File URL")
+    uploaded_image = fields.Binary(string="Uploaded Image")
 
+# random mã chứng chỉ
+    @api.model
+    def create(self, vals):
+        if not vals.get('certificate_code'):
+            vals['certificate_code'] = ''.join(random.choices(string.digits, k=10))
+        return super(Certificate, self).create(vals)
+    
     @api.constrains("issue_date", "expiration_date")
     def _check_dates_and_expire(self):
         today = date.today()
@@ -39,3 +49,4 @@ class Certificate(models.Model):
             # Nếu ngày hết hạn nhỏ hơn hôm nay => đã hết hạn => status = 'expired'
             if record.expiration_date and record.expiration_date < today:
                 record.status = 'expired'
+

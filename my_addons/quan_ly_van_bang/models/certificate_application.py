@@ -32,6 +32,9 @@ class CertificateApplication(models.Model):
         tracking=True,
     )
     notes = fields.Text(string="Ghi Chú")
+    issuing_organization_id = fields.Many2one(
+        "issuing.organization", string="Tổ Chức Cấp Chứng Chỉ"
+    )
 
     @api.model
     def create(self, vals):
