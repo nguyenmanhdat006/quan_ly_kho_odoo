@@ -31,5 +31,16 @@
             (4, ref('quan_ly_van_bang.group_qlvb_teacher')),
         ]"/>
     </record>
+    
+    <record id="certificate_rule_own_records" model="ir.rule">
+        <field name="name">Certificate: Own Records</field>
+        <field name="model_id" ref="quan_ly_van_bang.model_quanly_certificate"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('quan_ly_van_bang.group_qlvb_student'))]"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
 
 </odoo>
