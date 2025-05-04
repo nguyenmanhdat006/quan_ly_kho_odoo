@@ -12,3 +12,4 @@ access_certificate_status_logs_teacher,certificate.status.logs.teacher,quan_ly_v
 access_certificate,access_certificate,model_quanly_certificate,base.group_user,1,1,1,1
 access_student,access_student,model_quanly_student,base.group_user,1,1,1,1
 access_user_profile,access_user_profile,model_res_users,base.group_user,1,1,0,0
+access_admin_profile,access_admin_profile,model_res_users,base.group_system,1,1,1,1
