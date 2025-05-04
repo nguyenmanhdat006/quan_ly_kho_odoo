@@ -12,8 +12,8 @@
     <menuitem id="menu_certificate_management" name="Certificate Management" parent="qlvb_menu_root"/>
     <menuitem id="menu_certificate_application_list" name="Certificate Applications List" parent="menu_certificate_management" action="action_certificate_application"/>
     <menuitem id="menu_certificate_status_logs" name="Certificate Status Logs" parent="menu_certificate_management" action="action_certificate_status_logs"/>
-    <menuitem id="menu_my_profile" name="Thông Tin Của Tôi" parent="qlvb_menu_root" action="action_open_current_user_form" sequence="99"/>
-
-    <menuitem id="menu_student_profile" name="Thông Tin Sinh Viên" parent="qlvb_menu_root" action="action_open_student_list_view" sequence="99" groups="quan_ly_van_bang.group_qlvb_admin"/>
+    
+    <menuitem id="menu_my_profile" name="My Profile" parent="qlvb_menu_root" action="action_open_current_user_form" sequence="99"/>
+    <menuitem id="menu_student_profile" name="Users Details" parent="qlvb_menu_root" action="action_open_student_list_view" sequence="99" groups="quan_ly_van_bang.group_qlvb_admin"/>
     <menuitem id="menu_certificate_report" name="Danh sách chứng chỉ đã cấp" parent="menu_certificate_management" action="action_certificate_report" groups="quan_ly_van_bang.group_qlvb_teacher,quan_ly_van_bang.group_qlvb_admin"/> 
 </odoo>

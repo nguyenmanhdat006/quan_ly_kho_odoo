@@ -43,7 +43,6 @@
                         <page string="Certificates">
                             <field name="certificate_ids" widget="one2many_list">
                                 <tree create="false">
-                                    <field name="student_id" string="Student"/>
                                     <field name="certificate_type_id" string="Certificate Type"/>
                                     <field name="certificate_code" string="Certificate Code"/>
                                     <field name="status" string="Status"/>
