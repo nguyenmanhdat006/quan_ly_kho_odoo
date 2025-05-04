@@ -9,13 +9,14 @@ class Certificate(models.Model):
     _name = "quanly.certificate"
     _description = "Certificate"
 
-    student_id = fields.Many2one("quanly.student", string="Student", required=True)
+    student_id = fields.Many2one("quanly.student", string="Student")
     certificate_type_id = fields.Many2one(
         "certificate.type", string="Certificate Type", required=True
     )
     user_id = fields.Many2one(
         "res.users", string="User", required=True, default=lambda self: self.env.user, 
     )
+
     issuing_organization_id = fields.Many2one(
         "issuing.organization",
         string="Issuing Organization",
@@ -72,10 +73,21 @@ class Certificate(models.Model):
         compute="_compute_available_organizations",
     )
 
-    @api.depends("certificate_type_id")
+    @api.depends("certificate_type_id") 
     def _compute_available_organizations(self):
         for record in self:
-            if record.certificate_type_id:
+            # nêu người dùng chọn một loại chứng chỉ
+            if record.certificate_type_id: 
                 record.available_organization_ids = record.certificate_type_id.issuing_organization_ids
             else:
                 record.available_organization_ids = False
+
+    # logic lưu trữ chứng chỉ
+    @api.model
+    def create(self, vals):
+        record = super(Certificate, self).create(vals)
+        # Tạo bản ghi trong Certificate Archive
+        self.env["certificate.archive"].create({
+            "certificate_id": record.id,
+        })
+        return record
