@@ -13,6 +13,7 @@
     "data": [
         "security/qlvb_group_access.xml",
         "security/ir.model.access.csv",
+        "views/student_profile_views.xml",
         "views/certificate_type_views.xml",
         "views/issuing_organization_views.xml",
         "views/certificate_application_views.xml",
