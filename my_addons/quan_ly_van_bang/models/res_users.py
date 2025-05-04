@@ -7,16 +7,13 @@ class ResUsersInherit(models.Model):
     _inherit = "res.users"
 
     certificate_ids = fields.One2many(
-        "quanly.certificate", "user_id", string="Certificates"
+        "quanly.certificate", "user_id", string="Certificates", domain="[('user_id', '=', id)]"
     )
+    role = fields.Char(string="Role")
 
     date_of_birth = fields.Date(string="Date of Birth")
     national_id = fields.Char(string="National ID")
     address = fields.Text(string="Address")
-
-    certificate_ids = fields.One2many(
-        "quanly.certificate", "student_id", string="Certificates"
-    )
 
     @api.constrains("email")
     def _check_email(self):
@@ -33,3 +30,13 @@ class ResUsersInherit(models.Model):
                 raise ValidationError(
                     "Số điện thoại không hợp lệ. Phải có từ 9 đến 15 chữ số, có thể bắt đầu bằng +."
                 )
+
+    # @api.model
+    # def update_user_role(self):
+    #     for user in self:
+    #         if user.has_group('quan_ly_van_bang.group_qlvb_student'):
+    #             user.role = 'student'
+    #         elif user.has_group('quan_ly_van_bang.group_qlvb_teacher'):
+    #             user.role = 'teacher'
+    #         else:
+    #             user.role = 'unknown'

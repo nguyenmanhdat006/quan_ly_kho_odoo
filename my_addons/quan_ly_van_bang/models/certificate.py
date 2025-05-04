@@ -13,7 +13,9 @@ class Certificate(models.Model):
     certificate_type_id = fields.Many2one(
         "certificate.type", string="Certificate Type", required=True
     )
-    
+    user_id = fields.Many2one(
+        "res.users", string="User", required=True, default=lambda self: self.env.user, 
+    )
     issuing_organization_id = fields.Many2one(
         "issuing.organization",
         string="Issuing Organization",

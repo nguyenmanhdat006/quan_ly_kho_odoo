@@ -6,17 +6,18 @@
         <field name="inherit_id" ref="base.view_users_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//tree" position="replace">
-                <tree string="Users" multi_edit="1">
-                    <field name="name" readonly="1"/>
-                    <field name="login" readonly="1"/>
-                    <field name="phone" readonly="1"/>
+                <tree string="Users">
+                    <field name="name" />
+                    <!-- <field name="role" /> -->
+                    <field name="email" />
+                    <field name="phone" />
                 </tree>
             </xpath>
         </field>
     </record>
 
     <record id="action_open_student_list_view" model="ir.actions.act_window">
-        <field name="name">Open My User List</field>
+        <field name="name">Danh sách người dùng</field>
         <field name="res_model">res.users</field>
         <field name="view_mode">tree,form</field>
         <field name="target">current</field>
