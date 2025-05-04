@@ -36,3 +36,5 @@ class Student(models.Model):
                 raise ValidationError(
                     "Số điện thoại không hợp lệ. Phải có từ 9 đến 15 chữ số, có thể bắt đầu bằng +."
                 )
+
+    

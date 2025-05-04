@@ -31,5 +31,26 @@
             (4, ref('quan_ly_van_bang.group_qlvb_teacher')),
         ]"/>
     </record>
+    
+    <record id="user_only_see_own_details" model="ir.rule">
+        <field name="name">User can only see their own details</field>
+        <field name="model_id" ref="base.model_res_users"/>
+        <field name="domain_force">[('id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
 
+    <record id="admin_see_all_details" model="ir.rule">
+        <field name="name">Admin can see all user details</field>
+        <field name="model_id" ref="base.model_res_users"/>
+        <field name="domain_force">[]</field>
+        <field name="groups" eval="[(4, ref('quan_ly_van_bang.group_qlvb_admin'))]"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
 </odoo>
