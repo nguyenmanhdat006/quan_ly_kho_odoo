@@ -55,5 +55,29 @@
             <field name="res_model">certificate.application</field>
             <field name="view_mode">tree,form</field>
         </record>
+
+        
+        <!-- View danh sách chứng chỉ đã cấp -->
+        <record id="view_certificate_report_tree" model="ir.ui.view">
+            <field name="name">certificate.report.tree</field>
+            <field name="model">certificate.application</field>
+            <field name="arch" type="xml">
+                <tree string="Danh sách chứng chỉ đã cấp">
+                    <field name="name"/>
+                    <field name="student_id"/>
+                    <field name="certificate_type_id"/>
+                    <field name="issuing_organization_id"/>
+                    <field name="apply_date"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_certificate_report" model="ir.actions.act_window">
+            <field name="name">Danh sách chứng chỉ đã cấp</field>
+            <field name="res_model">certificate.application</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">[('status', '=', 'approved')]</field>
+        </record>
     </data>
 </odoo>
