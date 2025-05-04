@@ -32,6 +32,7 @@
  You will be able to define additional access rights by editing the newly created user under the Settings / Users menu.
                         </div>
                         <field name="phone" widget="phone"/>
+                        <field name="mobile" widget="phone"/>
                     </group>
                     <group name="Personal Detail">
                         <field name="date_of_birth"/>
@@ -39,8 +40,14 @@
                         <field name="address"/>
                     </group>
                     <notebook>
-                        <page string="Certificate">
-                            <field name="certificate_ids" widget="one2many">
+                        <page string="Certificates">
+                            <field name="certificate_ids" widget="one2many_list">
+                                <tree>
+                                    <field name="student_id" string="Student"/>
+                                    <field name="certificate_type_id" string="Certificate Type"/>
+                                    <field name="certificate_code" string="Certificate Code"/>
+                                    <field name="status" string="Status"/>
+                                </tree>
                             </field>
                         </page>
                     </notebook>
