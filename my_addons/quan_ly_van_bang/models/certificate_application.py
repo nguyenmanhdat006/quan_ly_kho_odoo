@@ -35,9 +35,7 @@ class CertificateApplication(models.Model):
         tracking=True,
     )
     notes = fields.Text(string="Ghi Chú")
-    issuing_organization_id = fields.Many2one(
-        "issuing.organization", string="Tổ Chức Cấp Chứng Chỉ"
-    )
+
 
     @api.model
     def create(self, vals):
@@ -86,18 +84,37 @@ class CertificateApplication(models.Model):
                 "change_date": fields.Datetime.now(),
                 "notes": "Đơn bị từ chối.",
             })
+
+    # def _create_status_log(self, old_status, new_status, notes=""):
+    #     self.env["certificate.status.logs"].create({
+    #         "certificate_application_id": self.id,
+    #         "old_status": old_status,
+    #         "new_status": new_status,
+    #         "changed_by": self.env.user.id,
+    #         "change_date": fields.Datetime.now(),
+    #         "notes": notes,
+    #     })
+    # def action_toggle_approve(self):
+    #     for record in self:
+    #         old_status = record.status
+    #         if old_status == 'approved':
+    #             record.status = 'pending'
+    #             note = "Hủy duyệt đơn."
+    #         record._create_status_log(old_status, record.status, notes=note)
+
     @api.model
     def _is_admin(self):
         return self.env.user.has_group('quan_ly_van_bang.group_qlvb_admin')  
 
+    @api.model
+    def _is_teacher(self):
+        return self.env.user.has_group('quan_ly_van_bang.group_qlvb_teacher')
     def _compute_readonly(self):
         for record in self:
-            if self.env.user.has_group('quan_ly_van_bang.group_qlvb_teacher'):
-                record.readonly_status = True
-            else:
-                record.readonly_status = False
+            is_teacher = self._is_teacher() and not self._is_admin()
             record.readonly_status = (
-                record.status in ['approved', 'rejected'] and not self._is_admin()
+                is_teacher or
+                (record.status in ['approved', 'rejected'] and not self._is_admin())
             )
     readonly_status = fields.Boolean(compute="_compute_readonly", store=False)
     

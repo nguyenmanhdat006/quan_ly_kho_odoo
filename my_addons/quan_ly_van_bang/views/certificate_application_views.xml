@@ -33,6 +33,13 @@
                     <sheet>
                         <header>
                             <field name="status" widget="statusbar"/>
+                            <!-- <button name="action_toggle_approve"
+                            string="Hủy Duyệt"
+                            type="object"
+                            class="btn-primary"
+                            invisible="status in ['pending']"
+                            groups="quan_ly_van_bang.group_qlvb_admin"/> -->
+        
                         </header>
 
                         <group>
