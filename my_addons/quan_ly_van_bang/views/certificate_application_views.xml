@@ -25,10 +25,10 @@
             </field>
         </record>
 
-        <record id="view_certificate_application_form" model="ir.ui.view">
+        <record id="view_certificate_application_form" model="ir.ui.view" >
             <field name="name">certificate.application.form</field>
             <field name="model">certificate.application</field>
-            <field name="arch" type="xml">
+            <field name="arch" type="xml"  >
                 <form string="Đơn Đăng Ký Cấp Chứng Chỉ">
                     <sheet>
                         <header>

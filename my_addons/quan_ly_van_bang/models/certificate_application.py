@@ -92,6 +92,10 @@ class CertificateApplication(models.Model):
 
     def _compute_readonly(self):
         for record in self:
+            if self.env.user.has_group('quan_ly_van_bang.group_qlvb_teacher'):
+                record.readonly_status = True
+            else:
+                record.readonly_status = False
             record.readonly_status = (
                 record.status in ['approved', 'rejected'] and not self._is_admin()
             )
