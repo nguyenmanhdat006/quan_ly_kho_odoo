@@ -21,6 +21,7 @@
         "views/student_views.xml",
         "views/certificate_views.xml",
         "views/my_profile_views.xml",
+        'views/certificate_archive_views.xml',
         "views/menu_access_control.xml",
         "views/qlvb_menus.xml",
         "data/sequence.xml",

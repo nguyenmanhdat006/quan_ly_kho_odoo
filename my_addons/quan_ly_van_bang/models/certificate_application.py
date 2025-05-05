@@ -118,4 +118,3 @@ class CertificateApplication(models.Model):
                 (record.status in ['approved', 'rejected'] and not self._is_admin())
             )
     readonly_status = fields.Boolean(compute="_compute_readonly", store=False)
-    
