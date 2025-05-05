@@ -21,8 +21,10 @@
     <record id="group_qlvb_admin" model="res.groups">
         <field name="name">Admin</field>
         <field name="category_id" ref="module_category_qlvb"/>
-        <field name="implied_ids" eval="[(4, ref('quan_ly_van_bang.group_qlvb_teacher'))]"/>
-        <field name="implied_ids" eval="[(4, ref('quan_ly_van_bang.group_qlvb_student'))]"/>
+        <field name="implied_ids" eval="[
+            (4, ref('quan_ly_van_bang.group_qlvb_teacher')),
+            (4, ref('quan_ly_van_bang.group_qlvb_student'))
+        ]"/>
     </record>
 
     <record id="base.group_system" model="res.groups">
