@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_san_pham_form" model="ir.ui.view">
+        <field name="name">san.pham.form</field>
+        <field name="model">san.pham</field>
+        <field name="arch" type="xml">
+            <form string="Sản phẩm">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="ma_san_pham"/>
+                            <field name="ten_san_pham"/>
+                            <field name="xuat_xu"/>
+                        </group>
+                        <group>
+                            <field name="so_luong"/>
+                            <field name="gia_nhap"/>
+                            <field name="gia_ban"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="ngay_san_xuat"/>
+                        <field name="han_su_dung"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree/List View -->
+    <record id="view_san_pham_tree" model="ir.ui.view">
+        <field name="name">san.pham.tree</field>
+        <field name="model">san.pham</field>
+        <field name="arch" type="xml">
+            <tree string="Sản phẩm">
+                <field name="ma_san_pham"/>
+                <field name="ten_san_pham"/>
+                <field name="xuat_xu"/>
+                <field name="so_luong"/>
+                <field name="gia_ban"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_san_pham" model="ir.actions.act_window">
+        <field name="name">Sản phẩm</field>
+        <field name="res_model">san.pham</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo sản phẩm mới
+            </p>
+        </field>
+    </record>
+
+</odoo>

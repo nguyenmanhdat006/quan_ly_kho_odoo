@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Root Menu -->
+    <menuitem id="menu_quan_ly_kho_root"
+        name="Quản lý kho"
+        sequence="10"/>
+    <menuitem id="menu_nhan_vien" name="Nhân viên" parent="menu_quan_ly_kho_root" sequence="10" action="action_nhan_vien" groups="base.group_user"/>
+    <menuitem id="menu_khach_hang" name="Khách hàng" parent="menu_quan_ly_kho_root" sequence="20" action="action_khach_hang" groups="base.group_user"/>
+    <menuitem id="menu_nha_cung_cap" name="Nhà cung cấp" parent="menu_quan_ly_kho_root" sequence="30" action="action_nha_cung_cap" groups="base.group_user"/>
+    <menuitem id="menu_san_pham" name="Sản phẩm" parent="menu_quan_ly_kho_root" sequence="40" action="action_san_pham" groups="base.group_user"/>
+    <menuitem id="menu_kho" name="Kho" parent="menu_quan_ly_kho_root" sequence="50" action="action_kho" groups="base.group_user"/>
+    <menuitem id="menu_phieu_nhap" name="Phiếu nhập" parent="menu_quan_ly_kho_root" sequence="60" action="action_phieu_nhap" groups="base.group_user"/>
+    <menuitem id="menu_phieu_xuat" name="Phiếu xuất" parent="menu_quan_ly_kho_root" sequence="70" action="action_phieu_xuat" groups="base.group_user"/>
+    <menuitem id="menu_bo_phan_quan_ly" name="Bộ phận quản lý" parent="menu_quan_ly_kho_root" sequence="80" action="action_bo_phan_quan_ly" groups="base.group_user"/>
+</odoo>

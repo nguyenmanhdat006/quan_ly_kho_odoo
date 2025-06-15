@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_bo_phan_quan_ly_form" model="ir.ui.view">
+        <field name="name">bo.phan.quan.ly.form</field>
+        <field name="model">bo.phan.quan.ly</field>
+        <field name="arch" type="xml">
+            <form string="Bộ phận quản lý">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="ma_bo_phan"/>
+                            <field name="ten_bo_phan"/>
+                        </group>
+                        <group>
+                            <field name="so_dien_thoai"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree/List View -->
+    <record id="view_bo_phan_quan_ly_tree" model="ir.ui.view">
+        <field name="name">bo.phan.quan.ly.tree</field>
+        <field name="model">bo.phan.quan.ly</field>
+        <field name="arch" type="xml">
+            <tree string="Bộ phận quản lý">
+                <field name="ma_bo_phan"/>
+                <field name="ten_bo_phan"/>
+                <field name="so_dien_thoai"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_bo_phan_quan_ly" model="ir.actions.act_window">
+        <field name="name">Bộ phận quản lý</field>
+        <field name="res_model">bo.phan.quan.ly</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo bộ phận quản lý mới
+            </p>
+        </field>
+    </record>
+
+</odoo>

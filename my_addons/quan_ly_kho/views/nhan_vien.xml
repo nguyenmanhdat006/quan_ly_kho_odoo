@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_nhan_vien_form" model="ir.ui.view">
+        <field name="name">nhan.vien.form</field>
+        <field name="model">nhan.vien</field>
+        <field name="arch" type="xml">
+            <form string="Nhân viên">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="ma_nhan_vien"/>
+                            <field name="ten_nv"/>
+                            <field name="gioi_tinh"/>
+                        </group>
+                        <group>
+                            <field name="dia_chi"/>
+                            <field name="so_dien_thoai"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree/List View -->
+    <record id="view_nhan_vien_tree" model="ir.ui.view">
+        <field name="name">nhan.vien.tree</field>
+        <field name="model">nhan.vien</field>
+        <field name="arch" type="xml">
+            <tree string="Nhân viên">
+                <field name="ma_nhan_vien"/>
+                <field name="ten_nv"/>
+                <field name="gioi_tinh"/>
+                <field name="so_dien_thoai"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_nhan_vien" model="ir.actions.act_window">
+        <field name="name">Nhân viên</field>
+        <field name="res_model">nhan.vien</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo nhân viên mới
+            </p>
+        </field>
+    </record>
+
+</odoo>

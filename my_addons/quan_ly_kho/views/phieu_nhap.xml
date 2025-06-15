@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_phieu_nhap_form" model="ir.ui.view">
+        <field name="name">phieu.nhap.form</field>
+        <field name="model">phieu.nhap</field>
+        <field name="arch" type="xml">
+            <form string="Phiếu nhập">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="ma_phieu"/>
+                            <field name="ma_san_pham"/>
+                            <field name="ma_nhan_vien"/>
+                        </group>
+                        <group>
+                            <field name="ten_san_pham"/>
+                            <field name="so_luong"/>
+                            <field name="don_gia_mua"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="gia_nhap"/>
+                        <field name="ngay_nhap"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree/List View -->
+    <record id="view_phieu_nhap_tree" model="ir.ui.view">
+        <field name="name">phieu.nhap.tree</field>
+        <field name="model">phieu.nhap</field>
+        <field name="arch" type="xml">
+            <tree string="Phiếu nhập">
+                <field name="ma_phieu"/>
+                <field name="ma_san_pham"/>
+                <field name="ten_san_pham"/>
+                <field name="so_luong"/>
+                <field name="gia_nhap"/>
+                <field name="ngay_nhap"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_phieu_nhap" model="ir.actions.act_window">
+        <field name="name">Phiếu nhập</field>
+        <field name="res_model">phieu.nhap</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo phiếu nhập mới
+            </p>
+        </field>
+    </record>
+
+</odoo>

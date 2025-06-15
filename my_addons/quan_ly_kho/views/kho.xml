@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_kho_form" model="ir.ui.view">
+        <field name="name">kho.form</field>
+        <field name="model">kho</field>
+        <field name="arch" type="xml">
+            <form string="Kho">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="ma_kho"/>
+                            <field name="ma_san_pham"/>
+                            <field name="ten_san_pham"/>
+                        </group>
+                        <group>
+                            <field name="dia_chi"/>
+                            <field name="so_dien_thoai"/>
+                            <field name="so_luong_ton_kho"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree/List View -->
+    <record id="view_kho_tree" model="ir.ui.view">
+        <field name="name">kho.tree</field>
+        <field name="model">kho</field>
+        <field name="arch" type="xml">
+            <tree string="Kho">
+                <field name="ma_kho"/>
+                <field name="ma_san_pham"/>
+                <field name="ten_san_pham"/>
+                <field name="so_luong_ton_kho"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_kho" model="ir.actions.act_window">
+        <field name="name">Kho</field>
+        <field name="res_model">kho</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo kho mới
+            </p>
+        </field>
+    </record>
+</odoo>
