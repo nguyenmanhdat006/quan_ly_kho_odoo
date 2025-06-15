@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_khach_hang_form" model="ir.ui.view">
+        <field name="name">khach.hang.form</field>
+        <field name="model">khach.hang</field>
+        <field name="arch" type="xml">
+            <form string="Khách hàng">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="ma_khach_hang"/>
+                            <field name="ten"/>
+                        </group>
+                        <group>
+                            <field name="dia_chi"/>
+                            <field name="so_dien_thoai"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree/List View -->
+    <record id="view_khach_hang_tree" model="ir.ui.view">
+        <field name="name">khach.hang.tree</field>
+        <field name="model">khach.hang</field>
+        <field name="arch" type="xml">
+            <tree string="Khách hàng">
+                <field name="ma_khach_hang"/>
+                <field name="ten"/>
+                <field name="so_dien_thoai"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_khach_hang" model="ir.actions.act_window">
+        <field name="name">Khách hàng</field>
+        <field name="res_model">khach.hang</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo khách hàng mới
+            </p>
+        </field>
+    </record>
+
+</odoo>

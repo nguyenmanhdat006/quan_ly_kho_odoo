@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Sequence for Nhan Vien -->
+    <record id="seq_nhan_vien" model="ir.sequence">
+        <field name="name">Mã nhân viên</field>
+        <field name="code">nhan.vien</field>
+        <field name="prefix">NV/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Sequence for Khach Hang -->
+    <record id="seq_khach_hang" model="ir.sequence">
+        <field name="name">Mã khách hàng</field>
+        <field name="code">khach.hang</field>
+        <field name="prefix">KH/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Sequence for Nha Cung Cap -->
+    <record id="seq_nha_cung_cap" model="ir.sequence">
+        <field name="name">Mã nhà cung cấp</field>
+        <field name="code">nha.cung.cap</field>
+        <field name="prefix">NCC/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Sequence for San Pham -->
+    <record id="seq_san_pham" model="ir.sequence">
+        <field name="name">Mã sản phẩm</field>
+        <field name="code">san.pham</field>
+        <field name="prefix">SP/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Sequence for Kho -->
+    <record id="seq_kho" model="ir.sequence">
+        <field name="name">Mã kho</field>
+        <field name="code">kho</field>
+        <field name="prefix">K/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Sequence for Phieu Nhap -->
+    <record id="seq_phieu_nhap" model="ir.sequence">
+        <field name="name">Mã phiếu nhập</field>
+        <field name="code">phieu.nhap</field>
+        <field name="prefix">PN/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Sequence for Phieu Xuat -->
+    <record id="seq_phieu_xuat" model="ir.sequence">
+        <field name="name">Mã phiếu xuất</field>
+        <field name="code">phieu.xuat</field>
+        <field name="prefix">PX/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Sequence for Bo Phan Quan Ly -->
+    <record id="seq_bo_phan_quan_ly" model="ir.sequence">
+        <field name="name">Mã bộ phận quản lý</field>
+        <field name="code">bo.phan.quan.ly</field>
+        <field name="prefix">BP/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo> 

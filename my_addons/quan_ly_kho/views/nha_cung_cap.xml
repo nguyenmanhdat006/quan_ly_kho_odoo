@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_nha_cung_cap_form" model="ir.ui.view">
+        <field name="name">nha.cung.cap.form</field>
+        <field name="model">nha.cung.cap</field>
+        <field name="arch" type="xml">
+            <form string="Nhà cung cấp">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="ma_ncc"/>
+                            <field name="ten_ncc"/>
+                        </group>
+                        <group>
+                            <field name="dia_chi"/>
+                            <field name="so_dien_thoai"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree/List View -->
+    <record id="view_nha_cung_cap_tree" model="ir.ui.view">
+        <field name="name">nha.cung.cap.tree</field>
+        <field name="model">nha.cung.cap</field>
+        <field name="arch" type="xml">
+            <tree string="Nhà cung cấp">
+                <field name="ma_ncc"/>
+                <field name="ten_ncc"/>
+                <field name="so_dien_thoai"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_nha_cung_cap" model="ir.actions.act_window">
+        <field name="name">Nhà cung cấp</field>
+        <field name="res_model">nha.cung.cap</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo nhà cung cấp mới
+            </p>
+        </field>
+    </record>
+
+</odoo>
