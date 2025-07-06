@@ -1,20 +1,12 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-
-# Quyền cho Admin (toàn quyền)
 access_nhan_vien_admin,access_nhan_vien_admin,model_nhan_vien,quan_ly_kho.group_quan_ly,1,1,1,1
 access_khach_hang_admin,access_khach_hang_admin,model_khach_hang,quan_ly_kho.group_quan_ly,1,1,1,1
 access_nha_cung_cap_admin,access_nha_cung_cap_admin,model_nha_cung_cap,quan_ly_kho.group_quan_ly,1,1,1,1
 access_san_pham_admin,access_san_pham_admin,model_san_pham,quan_ly_kho.group_quan_ly,1,1,1,1
 access_kho_admin,access_kho_admin,model_kho,quan_ly_kho.group_quan_ly,1,1,1,1
-access_phieu_nhap_admin,access_phieu_nhap_admin,model_phieu_nhap,quan_ly_kho.group_quan_ly,1,1,1,1
-access_phieu_xuat_admin,access_phieu_xuat_admin,model_phieu_xuat,quan_ly_kho.group_quan_ly,1,1,1,1
 access_bo_phan_quan_ly_admin,access_bo_phan_quan_ly_admin,model_bo_phan_quan_ly,quan_ly_kho.group_quan_ly,1,1,1,1
-
-# Quyền cho Nhân viên (toàn quyền trong 4 model)
 access_phieu_nhap_nhan_vien,access_phieu_nhap_nhan_vien,model_phieu_nhap,quan_ly_kho.group_nhan_vien,1,1,1,1
 access_phieu_xuat_nhan_vien,access_phieu_xuat_nhan_vien,model_phieu_xuat,quan_ly_kho.group_nhan_vien,1,1,1,1
 access_san_pham_nhan_vien,access_san_pham_nhan_vien,model_san_pham,quan_ly_kho.group_nhan_vien,1,1,1,1
 access_kho_nhan_vien,access_kho_nhan_vien,model_kho,quan_ly_kho.group_nhan_vien,1,1,1,1
-
-# Quyền cho Khách hàng (toàn quyền trong sản phẩm)
 access_san_pham_khach_hang,access_san_pham_khach_hang,model_san_pham,quan_ly_kho.group_khach_hang,1,1,1,1
