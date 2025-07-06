@@ -10,7 +10,7 @@
                     <group>
                         <group>
                             <field name="ma_phieu"/>
-                            <field name="ma_san_pham"/>
+                            <field name="ma_san_pham" widget="Many2one"/>
                             <field name="ma_nhan_vien"/>
                         </group>
                         <group>

@@ -18,9 +18,16 @@ class PhieuXuat(models.Model):
         for record in self:
             record.don_gia_ban = record.so_luong * record.gia_ban
 
-    @api.model
-    def default_get(self, fields_list):
-        res = super().default_get(fields_list)
-        if 'ma_phieu' in fields_list:
-            res['ma_phieu'] = self.env['ir.sequence'].next_by_code('phieu.xuat') or '/'
-        return res
+    @api.model_create_multi
+    def create(self, vals_list):
+        # Tạo phiếu nhập trước
+        records = super(PhieuXuat, self).create(vals_list)
+
+        for record in records:
+            # Cập nhật số lượng tồn kho sản phẩm
+            if record.ma_san_pham and record.so_luong and record.ma_san_pham.so_luong >= record.so_luong:
+                san_pham = record.ma_san_pham
+                # Cộng thêm số lượng
+                san_pham.so_luong -= record.so_luong
+
+        return records
