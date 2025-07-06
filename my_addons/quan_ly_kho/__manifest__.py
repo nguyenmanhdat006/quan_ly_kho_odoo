@@ -16,6 +16,7 @@
     'author': 'Nhóm 01',
     'depends': ['base'],
     'data': [
+        'security/quan_ly_kho_groups.xml',
         'security/ir.model.access.csv',
         'data/sequence.xml',
         'views/nhan_vien.xml',

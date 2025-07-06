@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tạo category rõ ràng
+    <record id="module_category_quan_ly_kho" model="ir.module.category">
+        <field name="name">Quản lý kho</field>
+        <field name="sequence">10</field>
+        <field name="module">quan_ly_kho</field>
+    </record> -->
+
+    <!-- Nhóm Quản lý -->
+    <record id="group_quan_ly" model="res.groups">
+        <field name="name">Quản lý</field>
+        <!-- <field name="category_id" ref="module_category_quan_ly_kho"/> -->
+    </record>
+
+    <!-- Nhóm Nhân viên -->
+    <record id="group_nhan_vien" model="res.groups">
+        <field name="name">Nhân viên</field>
+        <!-- <field name="category_id" ref="module_category_quan_ly_kho"/> -->
+    </record>
+
+    <!-- Nhóm Khách hàng -->
+    <record id="group_khach_hang" model="res.groups">
+        <field name="name">Khách hàng</field>
+        <!-- <field name="category_id" ref="module_category_quan_ly_kho"/> -->
+    </record>
+</odoo>
