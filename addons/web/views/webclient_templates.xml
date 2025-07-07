@@ -19,8 +19,8 @@
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <title t-esc="title or 'Odoo'"/>
-        <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/web/static/img/favicon.ico'"/>
+        <title t-esc="title or 'Quản lý kho'"/>
+        <link type="image/x-icon" rel="shortcut icon" t-att-href="'https://assets.turbologo.com/assets/favicon-3a4b4a01c2c76d5c6589f3e67ce6b9ecb8959e1fbeefa46ac9336446d81bd77c.png'"/>
         <script id="web.layout.odooscript" type="text/javascript">
             var odoo = {
                 csrf_token: "<t t-nocache="The csrf token must always be up to date." t-esc="request.csrf_token(None)"/>",
@@ -120,7 +120,7 @@
                 <div t-attf-class="card border-0 mx-auto bg-100 {{login_card_classes}} o_database_list" style="max-width: 300px;">
                     <div class="card-body">
                         <div t-attf-class="text-center pb-3 border-bottom {{'mb-3' if form_small else 'mb-4'}}">
-                            <img t-attf-src="/web/binary/company_logo{{ '?dbname='+db if db else '' }}" alt="Logo" style="max-height:120px; max-width: 100%; width:auto"/>
+                            <img t-attf-src="https://assets.turbologo.com/assets/favicon-3a4b4a01c2c76d5c6589f3e67ce6b9ecb8959e1fbeefa46ac9336446d81bd77c.png" alt="Logo" style="max-height:120px; max-width: 100%; width:auto"/>
                         </div>
                         <t t-out="0"/>
                         <div class="text-center small mt-4 pt-3 border-top" t-if="not disable_footer">

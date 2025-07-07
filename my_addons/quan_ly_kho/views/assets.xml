@@ -1,0 +1,7 @@
+<odoo>
+    <template id="assets_frontend" inherit_id="web.layout">
+        <xpath expr="//link[@rel='shortcut icon']" position="replace">
+            <link rel="shortcut icon" type="image/x-icon" href="/quan_ly_kho/static/src/img/icon.png"/>
+        </xpath>
+    </template>
+</odoo>

@@ -13,6 +13,12 @@ class NhanVien(models.Model):
     ], string='Giới tính', required=True)
     dia_chi = fields.Text(string='Địa chỉ')
     so_dien_thoai = fields.Char(string='Số điện thoại')
+    vai_tro = fields.Selection([
+        ('ke_toan', 'Kế toán'),
+        ('nhan_vien_kho', 'Nhân viên kho'),
+        ('lao_cong', 'Lao công'),
+        # Thêm các vai trò khác nếu cần
+    ], string='Vai trò')
 
     @api.model
     def default_get(self, fields_list):

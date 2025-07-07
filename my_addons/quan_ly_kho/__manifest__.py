@@ -28,6 +28,7 @@
         'views/phieu_xuat.xml',
         'views/bo_phan_quan_ly.xml',
         'views/menu.xml',
+        'views/assets.xml', 
     ],
     'installable': True,
     'application': True,

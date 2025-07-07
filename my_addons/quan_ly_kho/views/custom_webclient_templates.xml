@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="custom_webclient_title" inherit_id="web.WebClient">
+        <xpath expr="//title" position="replace">
+            <title>Hệ thống Quản lý Kho Mỹ phẩm</title>
+        </xpath>
+    </template>
+</odoo>

@@ -12,6 +12,7 @@
                             <field name="ma_nhan_vien"/>
                             <field name="ten_nv"/>
                             <field name="gioi_tinh"/>
+                            <field name="vai_tro"/>
                         </group>
                         <group>
                             <field name="dia_chi"/>
@@ -32,6 +33,7 @@
                 <field name="ma_nhan_vien"/>
                 <field name="ten_nv"/>
                 <field name="gioi_tinh"/>
+                <field name="vai_tro"/>
                 <field name="so_dien_thoai"/>
             </tree>
         </field>

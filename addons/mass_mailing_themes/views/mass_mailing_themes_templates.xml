@@ -54,7 +54,7 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <a style="text-decoration:none;float:none;" href="http://www.example.com" target="_blank">
-                             <img border="0" src="/mass_mailing_themes/static/src/img/theme_event/s_default_image_logo.png" style="height: auto; max-width: 100%; width: 194px;"  width="194" alt="Your Logo" class="img-fluid" />
+                             <img border="0" src="/mass_mailing_themes/static/src/img/theme_event/s_default_image_logo.png" style="height: auto; max-width: 100%; width: 194px;"  width="194" alt="Quan ly kho" class="img-fluid" />
                         </a>
                     </div>
                     <div class="col-lg-8 o_mail_header_social" style="text-align: right;" t-translation="off">
@@ -947,7 +947,7 @@
                 <div class="row">
                     <div class="col-lg-8 pt16 pb16">
                         <a style="text-decoration:none;float:none;" href="http://www.example.com">
-                             <img border="0" src="/mass_mailing_themes/static/src/img/theme_coffeebreak/s_default_image_logo.png" style="height:auto;max-width:400px; width:100px;" alt="Your Logo" class="img-fluid" />
+                             <img border="0" src="/mass_mailing_themes/static/src/img/theme_coffeebreak/s_default_image_logo.png" style="height:auto;max-width:400px; width:100px;" alt="Quan ly kho" class="img-fluid" />
                         </a>
                     </div>
                     <div class="col-lg-4 o_mail_header_social" style="text-align: right">

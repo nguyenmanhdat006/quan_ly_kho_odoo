@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+
 class PhieuNhap(models.Model):
     _name = 'phieu.nhap'
     _description = 'Phiếu nhập'
@@ -22,17 +23,8 @@ class PhieuNhap(models.Model):
         for vals in vals_list:
             if vals.get('ma_phieu', 'New') == 'New':
                 vals['ma_phieu'] = self.env['ir.sequence'].next_by_code('phieu.nhap') or 'New'
-        return super().create(vals_list)
-    
-    @api.model_create_multi
-    def create(self, vals_list):
-        # Tạo phiếu nhập trước
-        records = super(PhieuNhap, self).create(vals_list)
-
+        records = super().create(vals_list)
         for record in records:
-            # Cập nhật số lượng tồn kho sản phẩm
             if record.ma_san_pham and record.so_luong:
-                san_pham = record.ma_san_pham
-                # Cộng thêm số lượng
-                san_pham.so_luong += record.so_luong
+                record.ma_san_pham.so_luong += record.so_luong
         return records
