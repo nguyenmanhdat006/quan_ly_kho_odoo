@@ -9,7 +9,7 @@ class Kho(models.Model):
     ten_san_pham = fields.Char(related='ma_san_pham.ten_san_pham', string='Tên sản phẩm', store=True)
     dia_chi = fields.Text(string='Địa chỉ')
     so_dien_thoai = fields.Char(string='Số điện thoại')
-    so_luong_ton_kho = fields.Integer(string='Số lượng tồn kho')
+    so_luong_ton_kho = fields.Integer(string='Số lượng tồn kho', related='ma_san_pham.so_luong', store=True, readonly=True)
 
     @api.model
     def default_get(self, fields_list):

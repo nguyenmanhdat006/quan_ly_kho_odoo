@@ -1,6 +1,4 @@
 from odoo import models, fields, api
-import logging
-_logger = logging.getLogger(__name__)
 class PhieuNhap(models.Model):
     _name = 'phieu.nhap'
     _description = 'Phiếu nhập'
@@ -37,9 +35,4 @@ class PhieuNhap(models.Model):
                 san_pham = record.ma_san_pham
                 # Cộng thêm số lượng
                 san_pham.so_luong += record.so_luong
-                _logger.info(
-                    "Đã cộng %s vào sản phẩm %s, tồn mới: %s",
-                    record.so_luong, san_pham.ten_san_pham, san_pham.so_luong
-                )
-
         return records
